@@ -34,7 +34,7 @@ JavaScript
 📁 Estrutura do Projeto
 
 /projeto-matematica-login
-├── index.html              # Página de login
+├── index.html              # Página de login<br>
 ├── home.html               # Página principal com links para as operações
 ├── soma.html               # Página da operação de soma
 ├── subtracao.html          # Página da operação de subtração
