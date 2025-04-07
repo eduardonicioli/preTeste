@@ -31,25 +31,4 @@ CSS3
 
 JavaScript
 
-📁 Estrutura do Projeto
-
-/projeto-matematica-login
-├── index.html              # Página de login<br>
-├── home.html               # Página principal com links para as operações
-├── soma.html               # Página da operação de soma
-├── subtracao.html          # Página da operação de subtração
-├── multiplicacao.html      # Página da operação de multiplicação
-├── divisao.html            # Página da operação de divisão
-├── css/
-│   └── style.css           # Estilos gerais
-├── js/
-│   └── login.js            # Lógica de login
-│   └── soma.js             # Lógica da soma
-│   └── subtracao.js        # Lógica da subtração
-│   └── multiplicacao.js    # Lógica da multiplicação
-│   └── divisao.js          # Lógica da divisão
-├── tests/
-│   └── login.test.js       # Testes do login
-│   └── operacoes.test.js   # Testes das operações
-└── package.json            # Configurações do projeto e Jest
 
