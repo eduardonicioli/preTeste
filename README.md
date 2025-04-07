@@ -12,7 +12,7 @@ Este projeto é uma aplicação web simples desenvolvida com HTML, CSS e JavaScr
 ✅ Cada operação em uma página individual<br>
 ✅ Testes unitários para:<br>
 Validação do login<br>
-Operações matemáticas<br>
+Operações matemáticas<p>
 🛠 Tecnologias utilizadas<br>
 HTML5
 
