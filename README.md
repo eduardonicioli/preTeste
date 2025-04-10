@@ -18,6 +18,10 @@ HTML5
 
 CSS3
 
-JavaScript
+JavaScript<p>
+<h3>Equipe:</h3>
+<li>Carlos Eduardo</li>
+<li>Ricardo Oliveira</li>
+<li>Gabriel Candido</li>
 
 
