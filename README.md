@@ -52,7 +52,7 @@ Casos de erro, como divisão por zero, são tratados adequadamente.
 -
 Frontend : HTML, CSS, JavaScript<br>
 Backend : Node.js<br>
-Testes : Jest ou outra biblioteca de testes<br<
+Testes : Jest ou outra biblioteca de testes<br>
 Automação : GitHub Actions ou outro sistema de CI/CD<br>
 
 👥 Integrantes do Grupo
