@@ -27,4 +27,4 @@ jobs:
 
       # Etapa 5: Verificar o status do job
       - name: Check job status
-        run: echo "✅ Job completed with status: ${{ job.status }}"
+        run: echo "✅ Trabalho concluído com status: ${{ job.status }}"
