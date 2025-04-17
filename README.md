@@ -47,3 +47,20 @@ Os testes garantem que:
 
 As operações retornam resultados corretos para diferentes entradas.
 Casos de erro, como divisão por zero, são tratados adequadamente.
+
+💻 Tecnologias Utilizadas
+-
+Frontend : HTML, CSS, JavaScript<br>
+Backend : Node.js<br>
+Testes : Jest ou outra biblioteca de testes<br>
+Automação : GitHub Actions ou outro sistema de CI/CD<br>
+
+👥 Integrantes do Grupo
+-
+Este projeto foi desenvolvido em colaboração pelos seguintes integrantes:
+
+[@Carlos Eduardo](https://github.com/eduardonicioli)
+
+[@Gabriel Candido](https://github.com/GabrielDanteCandido)
+
+[@Ricardo Oliveira](https://github.com/Ricardo-Oliveir)
