@@ -1,9 +1,9 @@
-const { calcularAdicao, calcularSubtracao, calcularMultiplicacao, calcularDivisao } = require('../script');
+const { calcularAdicao, calcularSubtracao, calcularMultiplicacao, calcularDivisao } = require('../calcular');
 
 test('Deve calcular a soma corretamente', () => {
     document.body.innerHTML = `
         <input id="valor1" value="10">
-        <input id="valor6" value="5">
+        <input id="valor2" value="5">
         <div id="resultado"></div>
     `;
     calcularAdicao();
