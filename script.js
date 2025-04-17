@@ -79,3 +79,11 @@ function calcular(operacao) {
     }
 }
 
+// Exporta as funções para serem usadas nos testes
+module.exports = {
+    calcularAdicao,
+    calcularSubtracao,
+    calcularMultiplicacao,
+    calcularDivisao
+};
+
