@@ -16,19 +16,28 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: '18' # Versão do Node.js desejada
-      
-      # Permitir acesso
-      - name: Check permissions
-        run: ls -l node_modules/.bin
 
-      # Etapa 3: Instalar dependências
+      # Etapa 3: Limpar o cache do npm
+      - name: Clear npm cache
+        run: npm cache clean --force
+
+      # Etapa 4: Instalar dependências
       - name: Install dependencies
         run: npm install
 
-      # Etapa 4: Executar testes com Jest
+      # Etapa 5: Verificar permissões
+      - name: Check permissions
+        run: ls -l node_modules/.bin
+
+      # Etapa 6: Ajustar permissões (se necessário)
+      - name: Fix permissions
+        run: chmod +x node_modules/.bin/*
+
+      # Etapa 7: Executar testes com Jest
       - name: Run Jest tests
         run: npm test
 
-      # Etapa 5: Exibir mensagem de sucesso genérica
+      # Etapa 8: Exibir mensagem de sucesso genérica
       - name: Check job status
+        if: always()
         run: echo "[INFO] Job completed."
