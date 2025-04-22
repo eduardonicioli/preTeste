@@ -25,6 +25,6 @@ jobs:
       - name: Run Jest tests
         run: npm test
 
-      # Etapa 5: Verificar o status do job
+      # Etapa 5: Exibir mensagem de sucesso genérica
       - name: Check job status
-        run: echo "[SUCCESS] Job completed with status: ${{ job.status }}"
+        run: echo "[INFO] Job completed."
