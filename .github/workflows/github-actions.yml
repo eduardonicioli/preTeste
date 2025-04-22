@@ -16,6 +16,10 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: '18' # Versão do Node.js desejada
+      
+      # Permitir acesso
+      - name: Check permissions
+        run: ls -l node_modules/.bin
 
       # Etapa 3: Instalar dependências
       - name: Install dependencies
