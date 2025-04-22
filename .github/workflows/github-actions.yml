@@ -25,11 +25,19 @@ jobs:
       - name: Install dependencies
         run: npm install
 
-      # Etapa 5: Executar testes com Jest
+      # Etapa 5: Ajustar permissões
+      - name: Fix permissions
+        run: chmod +x node_modules/.bin/*
+
+      # Etapa 6: Verificar instalação do Jest
+      - name: Check Jest installation
+        run: which jest || echo "Jest not found"
+
+      # Etapa 7: Executar testes com Jest
       - name: Run Jest tests
         run: npm test
 
-      # Etapa 6: Exibir mensagem de sucesso genérica
+      # Etapa 8: Exibir mensagem de sucesso genérica
       - name: Check job status
         if: always()
         run: echo "[INFO] Job completed."
