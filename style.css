@@ -5,93 +5,79 @@
     box-sizing: border-box;
 }
 
-/* --- Estilos Gerais do Corpo e Container --- */
+/* --- Estilos Gerais do Corpo e Container (Mobile-First) --- */
 
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background-color: #e0e0e0; /* Cor de fundo suave */
+    background-color: #e0e0e0;
     display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh; /* Ocupa a altura total da viewport */
+    flex-direction: column; /* Conteúdo em coluna por padrão (celular) */
+    justify-content: flex-start; /* Alinha o conteúdo ao topo por padrão */
+    align-items: center; /* Centraliza horizontalmente o conteúdo do body */
+    min-height: 100vh;
     margin: 0;
-    flex-direction: column; /* Para alinhar o container e o menu de navegação verticalmente */
-
-    /* --- NOVAS REGRAS PARA CENTRALIZAR O CONTEÚDO EM DESKTOP --- */
-    width: 100%; /* Garante que o body ocupe toda a largura disponível */
-    max-width: 400px; /* Define uma largura máxima para o corpo da página em telas grandes */
-    margin: 0 auto; /* Centraliza o body horizontalmente */
-    /* Removendo 'align-items: center' pois 'margin: 0 auto' já faz a centralização horizontal do body */
-    /* No entanto, como o .container é um flex item do body, vamos ajustar o container para centralizar */
+    padding: 20px 15px; /* Adiciona padding geral para não grudar nas bordas do celular */
+    overflow-x: hidden; /* Evita rolagem horizontal indesejada */
 }
 
-/* Estilo do container principal (usado em todas as páginas: calculadoras, inicial e login) */
+/* Estilo do container principal (usado em todas as páginas) */
 .container {
-    background-color: #3a3a3a; /* Fundo escuro para o container */
+    background-color: #3a3a3a;
     padding: 25px;
     border-radius: 12px;
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3); /* Sombra para profundidade */
-    width: 100%; /* Ocupa 100% da largura do seu pai (o body, que agora tem max-width) */
-    /* max-width será definido por regras mais específicas abaixo, dependendo da página */
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+    width: 100%; /* Ocupa a largura total disponível no pai */
+    max-width: 350px; /* Largura padrão para telas menores (calculadoras e login) */
     text-align: center;
     display: flex;
     flex-direction: column;
-    gap: 20px; /* Espaçamento entre os elementos internos do container */
+    gap: 20px;
 }
 
-/* Estilo para o título principal (Bem-vindo, Adição, Divisão, Login, etc.) */
+/* Estilo para o título principal */
 h1 {
-    font-size: 32px;
-    color: #f0f0f0; /* Cor do texto do título */
+    font-size: 28px; /* Ajustado para mobile */
+    color: #f0f0f0;
     margin-bottom: 10px;
-    text-shadow: 1px 1px 3px rgba(0,0,0,0.4); /* Sombra suave para o texto */
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.4);
 }
 
 /* Estilo do parágrafo na página inicial */
 p {
-    font-size: 1.1em;
-    color: #ccc; /* Cor de texto mais clara para o parágrafo */
-    margin-bottom: 25px;
-    line-height: 1.5; /* Espaçamento entre linhas */
+    font-size: 1em; /* Ajustado para mobile */
+    color: #ccc;
+    margin-bottom: 20px; /* Ajustado */
+    line-height: 1.4;
 }
 
----
+/* --- Estilos para as Telas de Operação da Calculadora (Mobile-First) --- */
 
-/* --- Estilos para as Telas de Operação da Calculadora --- */
-
-/* Largura específica do container para as páginas de operação */
-/* Esta regra se aplica apenas se o container NÃO tiver as classes .options (página inicial) ou #loginForm (login) */
-.container:not(:has(.options)):not(:has(#loginForm)) {
-    max-width: 350px; /* Largura padrão para as calculadoras */
-}
-
-/* Estilos para o Display da Calculadora (inputs e resultado) */
+/* Display da Calculadora */
 .display {
-    background-color: #222; /* Fundo escuro para o display */
-    color: #0f0; /* Cor verde estilo "display digital" */
-    padding: 15px 20px;
+    background-color: #222;
+    color: #0f0;
+    padding: 15px 10px; /* Ajustado para mobile */
     border-radius: 8px;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 2em;
-    gap: 10px; /* Espaçamento entre os inputs e o símbolo */
-    box-shadow: inset 0 0 8px rgba(0,0,0,0.5); /* Sombra interna para efeito de profundidade */
+    font-size: 1.8em; /* Ajustado para mobile */
+    gap: 8px; /* Ajustado */
+    box-shadow: inset 0 0 8px rgba(0,0,0,0.5);
 }
 
 .display input[type="number"] {
     background: none;
     border: none;
     color: #0f0;
-    font-size: 1em; /* Tamanho da fonte relativo ao pai (.display) */
-    width: 45%; /* Cada input ocupa quase metade do display */
+    font-size: 1em;
+    width: 48%; /* Ajustado para mobile */
     text-align: center;
     padding: 5px 0;
-    outline: none; /* Remove o contorno ao focar */
-    -moz-appearance: textfield; /* Remove setas em Firefox */
+    outline: none;
+    -moz-appearance: textfield;
 }
 
-/* Remove setas de incremento/decremento para navegadores WebKit (Chrome/Safari/Edge) */
 .display input[type="number"]::-webkit-outer-spin-button,
 .display input[type="number"]::-webkit-inner-spin-button {
     -webkit-appearance: none;
@@ -100,81 +86,79 @@ p {
 
 .operator-symbol {
     font-weight: bold;
-    color: #ff9500; /* Cor laranja para o símbolo do operador */
-    font-size: 1.2em;
+    color: #ff9500;
+    font-size: 1.1em; /* Ajustado */
 }
 
-/* Estilo para o display de resultado */
+/* Display de Resultado */
 .result-display {
-    background-color: #444; /* Fundo um pouco mais claro para o resultado */
+    background-color: #444;
     color: #0f0;
     padding: 15px;
     border-radius: 8px;
-    font-size: 2em;
+    font-size: 1.8em; /* Ajustado para mobile */
     text-align: center;
-    min-height: 1.5em; /* Garante altura mínima mesmo sem conteúdo */
+    min-height: 1.5em;
     display: flex;
     align-items: center;
     justify-content: center;
-    word-break: break-all; /* Quebra palavras longas para caber no display */
+    word-break: break-all;
     box-shadow: inset 0 0 6px rgba(0,0,0,0.4);
 }
 
-/* --- Estilos para os Botões (Calcular/Limpar e Voltar) nas Calculadoras de Operação --- */
+/* --- Estilos para os Botões (Calcular/Limpar e Voltar nas Calculadoras de Operação) --- */
 .buttons {
     display: flex;
-    flex-wrap: nowrap; /* Garante que os botões não quebrem a linha */
-    gap: 15px; /* Espaçamento entre os botões */
-    justify-content: center; /* Centraliza os botões */
+    flex-wrap: nowrap; /* Impede quebra de linha por padrão */
+    gap: 10px; /* Ajustado para mobile */
+    justify-content: center;
 }
 
-/* Estilos base para todos os botões e links dentro de .buttons */
 .buttons button,
 .buttons .back-button {
     color: white;
     border: none;
-    padding: 15px 10px; /* Ajustado para 3 botões na linha */
-    font-size: 1.1em; /* Ajustado para 3 botões na linha */
+    padding: 12px 8px; /* Reduzido para caber melhor 3 botões */
+    font-size: 1em; /* Reduzido para caber melhor 3 botões */
     border-radius: 8px;
     cursor: pointer;
     transition: background-color 0.2s ease, transform 0.1s ease;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2); /* Sombra menor */
     box-sizing: border-box;
-    text-decoration: none; /* Remove sublinhado para o link "Voltar" */
-    display: flex; /* Para centralizar o texto */
+    text-decoration: none;
+    display: flex;
     justify-content: center;
     align-items: center;
 
-    /* AQUI ESTÁ A MUDANÇA PRINCIPAL PARA OS 3 BOTÕES NA MESMA LINHA */
     flex: 1; /* Faz com que todos os 3 botões tentem ocupar o mesmo espaço */
-    max-width: calc(33.33% - 10px); /* Garante que 3 botões caibam, considerando o gap */
-    min-width: 80px; /* Garante que não fiquem muito pequenos em telas estreitas */
+    max-width: calc(33.33% - 7px); /* Ajustado para o novo gap */
+    min-width: 70px; /* Ajustado para mobile */
 }
 
 .buttons button:hover,
 .buttons .back-button:hover {
-    transform: translateY(-2px); /* Efeito de "levantar" */
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+    transform: translateY(-2px);
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
 }
 
 .buttons button:active,
 .buttons .back-button:active {
-    transform: translateY(0); /* Retorna à posição original */
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Sombra menor no clique */
+    transform: translateY(0);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 }
 
 /* Estilos específicos para os botões Calcular e Limpar */
 .buttons button {
-    background-color: #007bff; /* Cor azul padrão para o botão "Calcular" */
+    background-color: #007bff;
 }
 
 .buttons button:hover {
-    background-color: #0056b3; /* Cor mais escura no hover */
+    background-color: #0056b3;
 }
 
 /* Estilo específico para o botão "Limpar" */
-.buttons button:last-of-type { /* Seleciona o último elemento <button> (Calcular, Limpar) */
-    background-color: #dc3545; /* Cor vermelha para "Limpar" */
+.buttons button:last-of-type {
+    background-color: #dc3545;
 }
 
 .buttons button:last-of-type:hover {
@@ -183,112 +167,89 @@ p {
 
 /* Estilo específico para o botão "Voltar" */
 .buttons .back-button {
-    background-color: #6c757d; /* Cor cinza para o botão "Voltar" */
+    background-color: #6c757d;
 }
 
 .buttons .back-button:hover {
     background-color: #5a6268;
 }
 
----
-
-/* --- Estilos para a Página Inicial de Seleção de Operação --- */
-
-/* Ajuste a largura do container na página inicial para um melhor layout dos botões de opção */
-.container:has(.options) { /* Aplica essa largura somente se o container tiver a classe .options dentro */
-    max-width: 450px; /* Um pouco mais largo para acomodar 2 botões por linha */
+/* ---------------------------------------------------- */
+/* --- Estilos para a Página Inicial de Seleção de Operação (Mobile-First) --- */
+/* ---------------------------------------------------- */
+/* Largura específica do container para a página inicial */
+.container:has(.options) {
+    max-width: 320px; /* Mais adequado para celulares, os botões quebram naturalmente */
 }
 
 /* Estilo para o container dos botões de operação na página inicial */
 .options {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); /* Tenta criar 2 colunas com no mínimo 150px */
-    gap: 20px; /* Espaçamento entre os botões de opção */
+    /* Em telas pequenas, os botões ocuparão a largura total (1fr) */
+    grid-template-columns: 1fr;
+    gap: 15px; /* Ajustado para mobile */
     margin-top: 20px;
 }
 
 /* Estilo base para os links que funcionam como botões na página inicial */
 .options .button {
-    display: flex; /* Para centralizar o texto vertical e horizontalmente */
+    display: flex;
     justify-content: center;
     align-items: center;
-    min-height: 80px; /* Altura mínima para os botões de seleção */
-    background-color: #555; /* Cor padrão mais escura */
+    min-height: 70px; /* Ajustado para mobile */
+    background-color: #555;
     color: white;
-    text-decoration: none; /* Remove sublinhado dos links */
+    text-decoration: none;
     padding: 15px 20px;
-    font-size: 1.4em;
+    font-size: 1.2em; /* Ajustado para mobile */
     font-weight: bold;
     border-radius: 10px;
     transition: background-color 0.2s ease, transform 0.1s ease, box-shadow 0.2s ease;
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3); /* Sombra ajustada */
 }
 
 .options .button:hover {
-    transform: translateY(-3px); /* Efeito de "levantar" no hover */
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
+    transform: translateY(-3px);
+    box-shadow: 0 7px 14px rgba(0, 0, 0, 0.4);
 }
 
 .options .button:active {
     transform: translateY(0);
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    background-color: #444; /* Escurecer no clique */
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
+    background-color: #444;
 }
 
 /* Cores específicas para cada botão de operação na página inicial */
-.options .button-plus {
-    background-color: #28a745; /* Verde para Adição */
-}
-.options .button-plus:hover {
-    background-color: #218838;
-}
+.options .button-plus { background-color: #28a745; }
+.options .button-plus:hover { background-color: #218838; }
+.options .button-minus { background-color: #dc3545; }
+.options .button-minus:hover { background-color: #c82333; }
+.options .button-times { background-color: #ffc107; color: #333; }
+.options .button-times:hover { background-color: #e0a800; }
+.options .button-divide { background-color: #007bff; }
+.options .button-divide:hover { background-color: #0056b3; }
 
-.options .button-minus {
-    background-color: #dc3545; /* Vermelho para Subtração */
-}
-.options .button-minus:hover {
-    background-color: #c82333;
-}
 
-.options .button-times {
-    background-color: #ffc107; /* Amarelo/Laranja para Multiplicação */
-    color: #333; /* Texto escuro para melhor contraste em fundo claro */
+/* ---------------------------------------------------- */
+/* --- Estilos para a Tela de Login (Mobile-First) --- */
+/* ---------------------------------------------------- */
+/* Largura específica do container na tela de login */
+.container:has(#loginForm) {
+    max-width: 320px; /* Adequado para login em celular */
 }
-.options .button-times:hover {
-    background-color: #e0a800;
-}
-
-.options .button-divide {
-    background-color: #007bff; /* Azul para Divisão */
-}
-.options .button-divide:hover {
-    background-color: #0056b3;
-}
-
----
-
-/* --- Estilos para a Tela de Login --- */
-
-/* Ajustes específicos para o container na tela de login */
-.container:has(#loginForm) { /* Aplica essa largura somente se o container tiver o formulário de login */
-    max-width: 400px; /* Largura ajustada para o formulário de login */
-}
-
-/* Estilo do título na tela de login */
-/* (Já definido globalmente para h1, mas pode ser ajustado se necessário) */
 
 /* Estilo para os grupos de formulário (label + input) */
 .form-group {
-    margin-bottom: 20px; /* Espaçamento entre os campos */
-    text-align: left; /* Alinha o label à esquerda */
+    margin-bottom: 18px; /* Ajustado para mobile */
+    text-align: left;
 }
 
 /* Estilo dos rótulos (labels) */
 .form-group label {
-    display: block; /* Cada label em sua própria linha */
-    font-size: 1.1em;
-    color: #f0f0f0; /* Cor do texto do label */
-    margin-bottom: 8px; /* Espaçamento entre o label e o input */
+    display: block;
+    font-size: 1em; /* Ajustado */
+    color: #f0f0f0;
+    margin-bottom: 6px; /* Ajustado */
     font-weight: bold;
 }
 
@@ -296,55 +257,53 @@ p {
 .form-group input[type="text"],
 .form-group input[type="password"] {
     width: 100%;
-    padding: 12px;
-    font-size: 1.1em;
-    border: 1px solid #666; /* Borda escura para combinar */
+    padding: 10px; /* Ajustado */
+    font-size: 1em; /* Ajustado */
+    border: 1px solid #666;
     border-radius: 6px;
-    background-color: #444; /* Fundo escuro para o input */
-    color: #e0e0e0; /* Cor do texto digitado */
-    outline: none; /* Remove contorno padrão no foco */
+    background-color: #444;
+    color: #e0e0e0;
+    outline: none;
     transition: border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
-/* Efeito de foco nos campos de entrada */
 .form-group input[type="text"]:focus,
 .form-group input[type="password"]:focus {
-    border-color: #007bff; /* Borda azul vibrante no foco */
-    box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.5); /* Sombra azul para destaque */
+    border-color: #007bff;
+    box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.5);
 }
 
-/* Estilo do placeholder */
 .form-group input::placeholder {
-    color: #aaa; /* Cor mais clara para o placeholder */
+    color: #aaa;
 }
 
 /* Estilo do link "Recuperar a senha" */
 .forgot-password-link {
-    display: block; /* Para ocupar sua própria linha */
-    text-align: right; /* Alinha à direita */
-    font-size: 0.95em;
-    color: #007bff; /* Cor azul vibrante */
+    display: block;
+    text-align: right;
+    font-size: 0.9em; /* Ajustado */
+    color: #007bff;
     text-decoration: none;
-    margin-top: 8px; /* Espaçamento acima do link */
+    margin-top: 6px; /* Ajustado */
     transition: color 0.2s ease;
 }
 
 .forgot-password-link:hover {
-    color: #0056b3; /* Cor mais escura no hover */
+    color: #0056b3;
     text-decoration: underline;
 }
 
 /* Estilo do botão de login */
 .login-button {
-    background-color: #28a745; /* Cor verde para o botão de Entrar */
+    background-color: #28a745;
     color: white;
     border: none;
-    padding: 15px 25px;
-    font-size: 1.2em;
+    padding: 12px 20px; /* Ajustado */
+    font-size: 1.1em; /* Ajustado */
     border-radius: 8px;
     cursor: pointer;
-    width: 100%; /* Botão ocupa 100% da largura */
-    margin-top: 10px; /* Espaçamento acima do botão */
+    width: 100%;
+    margin-top: 10px;
     transition: background-color 0.2s ease, transform 0.1s ease, box-shadow 0.2s ease;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
@@ -361,14 +320,14 @@ p {
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 }
 
-/* Estilo para o link "Voltar" na página de login, se estiver fora do formulário e com a classe .button */
-.return-home { /* Este é o div que envolve o botão "Voltar" no HTML do login */
-    margin-top: 30px;
+/* Estilo para o link "Voltar" na página de login */
+.return-home {
+    margin-top: 25px; /* Ajustado */
     text-align: center;
 }
 
-.return-home .button { /* Este é o link <a> dentro do div .return-home */
-    background-color: #6c757d; /* Cor cinza */
+.return-home .button {
+    background-color: #6c757d;
     color: white;
     text-decoration: none;
     padding: 10px 15px;
@@ -391,11 +350,130 @@ p {
     box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
 }
 
----
-
 /* --- Estilos do Rodapé --- */
 footer {
-    margin-top: 30px;
-    font-size: 0.9em;
-    color: #888; /* Cor mais clara para o texto do rodapé */
+    margin-top: 25px; /* Ajustado */
+    font-size: 0.85em; /* Ajustado */
+    color: #888;
+}
+
+/* ==================================================== */
+/* --- MEDIA QUERIES para Telas Maiores (Desktop) --- */
+/* ==================================================== */
+
+@media (min-width: 768px) {
+    body {
+        justify-content: center; /* Centraliza verticalmente em telas maiores */
+        padding: 40px 20px; /* Mais padding em desktop */
+    }
+
+    .container {
+        padding: 35px; /* Mais padding interno para desktop */
+        gap: 30px; /* Mais espaçamento interno */
+    }
+
+    h1 {
+        font-size: 38px; /* Tamanho maior para desktop */
+        margin-bottom: 15px;
+    }
+
+    p {
+        font-size: 1.1em; /* Tamanho maior para desktop */
+        margin-bottom: 30px;
+    }
+
+    /* --- Ajustes para Calculadoras Individuais em Desktop --- */
+    .container:not(:has(.options)):not(:has(#loginForm)) {
+        max-width: 400px; /* Largura ideal para calculadora em desktop */
+    }
+
+    .display {
+        padding: 20px 15px;
+        font-size: 2.5em; /* Tamanho maior para desktop */
+        gap: 10px;
+    }
+
+    .display input[type="number"] {
+        font-size: 1.1em;
+        width: 45%;
+    }
+
+    .operator-symbol {
+        font-size: 1.2em;
+    }
+
+    .result-display {
+        padding: 20px;
+        font-size: 2.5em; /* Tamanho maior para desktop */
+    }
+
+    .buttons {
+        gap: 20px; /* Mais espaço entre os botões em desktop */
+    }
+
+    .buttons button,
+    .buttons .back-button {
+        padding: 15px 15px; /* Padding maior para desktop */
+        font-size: 1.2em; /* Fonte maior para desktop */
+        max-width: calc(33.33% - 13.33px); /* Ajuste com novo gap (20px) */
+        min-width: 100px;
+    }
+
+    /* --- Ajustes para a Página Inicial de Seleção em Desktop --- */
+    .container:has(.options) {
+        max-width: 480px; /* Largura ideal para seleção em desktop (2 colunas) */
+    }
+
+    .options {
+        grid-template-columns: repeat(2, 1fr); /* 2 colunas para desktop */
+        gap: 25px; /* Mais espaçamento entre botões */
+    }
+
+    .options .button {
+        min-height: 90px; /* Altura maior para desktop */
+        font-size: 1.5em; /* Fonte maior para desktop */
+    }
+
+    /* --- Ajustes para a Tela de Login em Desktop --- */
+    .container:has(#loginForm) {
+        max-width: 450px; /* Largura ideal para login em desktop */
+    }
+
+    .form-group {
+        margin-bottom: 25px;
+    }
+
+    .form-group label {
+        font-size: 1.1em;
+        margin-bottom: 8px;
+    }
+
+    .form-group input[type="text"],
+    .form-group input[type="password"] {
+        padding: 12px;
+        font-size: 1.1em;
+    }
+
+    .forgot-password-link {
+        font-size: 1em;
+        margin-top: 8px;
+    }
+
+    .login-button {
+        padding: 15px 25px;
+        font-size: 1.2em;
+    }
+
+    .return-home {
+        margin-top: 30px;
+    }
+
+    .return-home .button {
+        font-size: 1em;
+    }
+
+    footer {
+        margin-top: 30px;
+        font-size: 0.9em;
+    }
 }
