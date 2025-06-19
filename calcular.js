@@ -12,6 +12,13 @@ function calcularAdicao() {
     document.getElementById('resultado').textContent = `Resultado: ${resultado}`;
 }
 
+// Função para limpar os dados
+function limpar() {
+    document.getElementById('valor1').value = '';
+    document.getElementById('valor2').value = '';
+    document.getElementById('resultado').textContent = 'Resultado: 0';
+}
+
 // Função para realizar a subtração
 function calcularSubtracao() {
     const valor1 = parseFloat(document.getElementById('valor1').value);
