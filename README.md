@@ -11,6 +11,7 @@ O objetivo deste projeto é criar uma aplicação web simples com as seguintes f
 <li>🧮 Operações Matemáticas : Cada operação (soma, subtração, multiplicação e divisão) tem sua própria página.
 <li>🧪 Testes Unitários : Foram implementados testes para validar todas as operações matemáticas.
 <li>🤖 Automações : Scripts automatizados para provisionar o ambiente e executar os testes.
+<li>🐳 Docker + Nginx : O projeto pode ser executado em um container Docker utilizando o Nginx para servir os arquivos estáticos.
 <li>🔗 Fluxo da Aplicação
 
 <h3>Login 👤</h3>
@@ -26,6 +27,32 @@ A página inicial contém links para as operações matemáticas disponíveis:
 <li>Divisão ➗
   
 Cada link direciona o usuário para uma página específica onde ele pode realizar a operação selecionada.
+
+---
+
+## 🐳 Como rodar com Docker e Nginx
+
+O projeto já possui um [Dockerfile](Dockerfile) e uma configuração de [nginx.conf](nginx.conf) prontos para servir a aplicação estática.
+
+### Passos para executar:
+
+1. **Build da imagem Docker:**
+   ```sh
+   docker build -t calculadora-nginx .
+   ```
+
+2. **Execute o container:**
+   ```sh
+   docker run -p 8080:80 calculadora-nginx
+   ```
+
+3. **Acesse no navegador:**
+   ```
+   http://localhost:8080
+   ```
+   A página inicial será a tela de seleção das operações matemáticas.
+
+---
 
 🤖 Automações
 -
@@ -54,6 +81,7 @@ Frontend : HTML, CSS, JavaScript<br>
 Backend : Node.js<br>
 Testes : Jest ou outra biblioteca de testes<br>
 Automação : GitHub Actions ou outro sistema de CI/CD<br>
+Containerização : Docker + Nginx<br>
 
 👥 Integrantes do Grupo
 -
