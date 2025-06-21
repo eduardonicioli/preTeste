@@ -89,6 +89,11 @@ Este projeto foi desenvolvido em colaboração pelos seguintes integrantes:
 
 [@Carlos Eduardo](https://github.com/eduardonicioli)
 
-[@Gabriel Candido](https://github.com/GabrielDanteCandido)
+[@Wendel Bitencourt](https://github.com/WendelBitencourt/WendelBitencourt)
 
-[@Ricardo Oliveira](https://github.com/Ricardo-Oliveir)
+[@Guilherme Paulino](https://github.com/GuilhermePaulinoRibeiro)
+
+[@Lidiane Marques](https://github.com/)
+
+[@Micaella](https://github.com/)
+
