@@ -93,7 +93,7 @@ Este projeto foi desenvolvido em colaboração pelos seguintes integrantes:
 
 [@Guilherme Paulino](https://github.com/GuilhermePaulinoRibeiro)
 
-[@Lidiane Marques](https://github.com/)
+[@Lidiane Marques](https://github.com/Lims31)
 
-[@Micaella](https://github.com/)
+[@Micaella Oliveira](https://github.com/micaellaletran13)
 
