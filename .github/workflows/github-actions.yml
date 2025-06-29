@@ -1,8 +1,9 @@
-name: Run Jest Tests
+name: Run Jest Tests and Push Docker Image
 
 on: [push]
 
 jobs:
+  # Job 1: Executar testes com Jest
   run-tests:
     runs-on: ubuntu-latest
 
@@ -21,15 +22,15 @@ jobs:
       - name: Clear npm cache
         run: npm cache clean --force
 
-      # Etapa 4: Instalar dependências
+      # Etapa 4: Instalar dependências do projeto
       - name: Install dependencies
         run: npm install
 
-      # Etapa 5: Ajustar permissões
+      # Etapa 5: Ajustar permissões (útil em ambientes Linux)
       - name: Fix permissions
         run: chmod +x node_modules/.bin/*
 
-      # Etapa 6: Verificar instalação do Jest
+      # Etapa 6: Verificar se o Jest está instalado corretamente
       - name: Check Jest installation
         run: which jest || echo "Jest not found"
 
@@ -37,7 +38,32 @@ jobs:
       - name: Run Jest tests
         run: npm test
 
-      # Etapa 8: Exibir mensagem de sucesso genérica
+      # Etapa 8: Exibir mensagem de status (mesmo que tenha falhado)
       - name: Check job status
         if: always()
         run: echo "[INFO] Job completed."
+
+  # Job 2: Criar e enviar imagem Docker (só roda se os testes passarem)
+  build-and-push-docker:
+    needs: run-tests  # Garante que os testes rodem antes
+    runs-on: ubuntu-latest
+
+    steps:
+      # Etapa 1: Clonar o repositório
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      # Etapa 2: Login no Docker Hub (usando segredos de forma segura)
+      - name: Log in to Docker Hub
+        env:
+          DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
+          DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
+        run: echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
+
+      # Etapa 3: Criar a imagem Docker com a tag "latest"
+      - name: Build Docker image
+        run: docker build -t guilhermesos/calculadora:latest .
+
+      # Etapa 4: Enviar a imagem para o Docker Hub
+      - name: Push Docker image
+        run: docker push guilhermesos/calculadora:latest
